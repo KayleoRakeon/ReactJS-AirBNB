@@ -2,6 +2,7 @@
 // 1 - Créer et utiliser un composant Appartment 
 // qui aura pour props : Un disponibilité, un nom, un prix (nombre), une note (nombre)
 
+import { Component } from 'react'
 import Appartement from './Appartement'
 import Header from './Header'
 
@@ -47,16 +48,31 @@ const appartements = [
   }
 ]
 
-const App = () => (
-  <div>
-    {/* // 2 - Créer 2 nouveaux composants : 
-    // > Un composant Header
-    // > Un composant Searchbar dans le composant Header
-    // Puis les afficher dans notre composant App */}
-    <Header title="Water BNB" />
-    { appartements.map(appart => <Appartement {...appart} />)}
-  </div>
-)
+// const App = () => (
+//   <div>
+//     {/* // 2 - Créer 2 nouveaux composants : 
+//     // > Un composant Header
+//     // > Un composant Searchbar dans le composant Header
+//     // Puis les afficher dans notre composant App */}
+//     <Header title="Water BNB" />
+//     { appartements.map(appart => <Appartement {...appart} />)}
+//   </div>
+// )
+
+class App extends Component {
+  constructor(props) {
+    super(props)
+  }
+
+  render() {
+    return (
+      <div>
+        <Header />
+        {appartements.map(appartement => <Appartement {...appartement} />)}
+      </div>
+    )
+  }
+}
 
 export default App
 
